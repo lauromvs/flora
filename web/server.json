@@ -1,0 +1,44 @@
+{
+  "products": [
+    {
+      "id": "123e4567 - e89b - 12d3- a456 - 4266141740001",
+      "name": "Aloe Vera1",
+      "amount": 3,
+      "value": 19.9,
+      "available": true,
+      "image": "https://images.unsplash.com/photo-1567689265664-1c48de61db0b?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=376&q=80"
+    },
+    {
+      "id": "123e4567 - e89b - 12d3- a456 - 4266141740002",
+      "name": "Aloe Vera2",
+      "amount": 1,
+      "value": 19.9,
+      "available": true,
+      "image": "https://images.unsplash.com/photo-1567689265664-1c48de61db0b?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=376&q=80"
+    },
+    {
+      "id": "123e4567 - e89b - 12d3- a456 - 4266141740003",
+      "name": "Aloe Vera3",
+      "amount": 3,
+      "value": 19.9,
+      "available": true,
+      "image": "https://images.unsplash.com/photo-1567689265664-1c48de61db0b?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=376&q=80"
+    },
+    {
+      "id": "123e4567 - e89b - 12d3- a456 - 4266141740004",
+      "name": "Lírio",
+      "amount": 3,
+      "value": 22.5,
+      "available": true,
+      "image": "https://images.unsplash.com/photo-1567689265664-1c48de61db0b?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=376&q=80"
+    },
+    {
+      "image": "não tem1",
+      "name": "La la teste",
+      "value": "19.2",
+      "amount": "2",
+      "available": true,
+      "id": "TVhs3Ow"
+    }
+  ]
+}
