@@ -16,6 +16,9 @@ class Product {
 
   @Column()
   value: number;
+
+  @Column()
+  available: boolean;
 }
 
 export default Product;

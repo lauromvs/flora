@@ -32,6 +32,10 @@ export class CreateProduct1606672602864 implements MigrationInterface {
             name: 'value',
             type: 'decimal',
           },
+          {
+            name: 'available',
+            type: 'boolean',
+          },
         ]
       })
     )

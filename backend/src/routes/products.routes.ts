@@ -33,7 +33,7 @@ productsRouter.get('/:id', async (req, res) => {
 });
 
 productsRouter.post('/', upload.single('image'), async (req, res) => {
-  const { name, amount, value } = req.body;
+  const { name, amount, value, available } = req.body;
 
   const createProduct = new CreateProductService();
 
@@ -41,7 +41,8 @@ productsRouter.post('/', upload.single('image'), async (req, res) => {
     name,
     image: req.file.filename,
     amount,
-    value
+    value,
+    available
   });
 
   return res.json(product);
@@ -49,7 +50,7 @@ productsRouter.post('/', upload.single('image'), async (req, res) => {
 
 productsRouter.put('/:id', upload.single('image'), async (req, res) => {
   const { id } = req.params;
-  const { name, amount, value } = req.body;
+  const { name, amount, value, available } = req.body;
 
   if (!validate(id)) {
     return res.status(400).json({ error: "Invalid id" });
@@ -62,7 +63,8 @@ productsRouter.put('/:id', upload.single('image'), async (req, res) => {
     name,
     image: req.file.filename,
     amount,
-    value
+    value,
+    available
   })
 
   return res.json(updatedProduct);

@@ -8,10 +8,11 @@ interface IRequest {
   image: string;
   amount: number;
   value: number;
+  available: boolean;
 }
 
 class CreateProductService {
-  public async execute({ name, amount, image, value }: IRequest): Promise<Product> {
+  public async execute({ name, amount, image, value, available }: IRequest): Promise<Product> {
     const productsRepository = getRepository(Product);
 
     const checkProductExists = await productsRepository.findOne({
@@ -22,7 +23,7 @@ class CreateProductService {
       throw new AppError('Product with this name alreary exists.');
     }
 
-    const product = productsRepository.create({ name, image, amount, value });
+    const product = productsRepository.create({ name, image, amount, value, available });
     await productsRepository.save(product);
 
     return product;

@@ -12,9 +12,10 @@ interface IRequest {
   image: string;
   amount: number;
   value: number;
+  available: boolean;
 }
 class UpdateProductService {
-  public async execute({ id, name, amount, image, value }: IRequest): Promise<Product> {
+  public async execute({ id, name, amount, image, value, available }: IRequest): Promise<Product> {
     const productsRepository = getRepository(Product);
     const product = await productsRepository.findOne(id);
     if (!product) {
@@ -28,9 +29,9 @@ class UpdateProductService {
       await fs.promises.unlink(productImagePath);
     }
 
-    await productsRepository.save({ id, name, amount, image, value });
+    await productsRepository.save({ id, name, amount, image, value, available });
 
-    return { id, name, amount, image, value };
+    return { id, name, amount, image, value, available };
   }
 }
 
