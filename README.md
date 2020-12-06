@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img src="./web/src/assets/logo-landing.png" alt="Flora" style="height:25px;"/>
+    <img src="./assets/logo.png" alt="Flora"/>
 </h1>
 
 <img src="./assets/flora.gif" alt="Gif da aplicação"/>
