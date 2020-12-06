@@ -8,6 +8,7 @@ import uploadConfig from '../config/upload';
 import Product from '../models/Products';
 import CreateProductService from '../services/CreateProductService';
 import UpdateProductService from '../services/UpdateProductService';
+import UpdateProductImageService from '../services/UpdateProductImageService';
 import DeleteProductService from '../services/DeleteProductService';
 
 const productsRouter = Router();
@@ -33,7 +34,7 @@ productsRouter.get('/:id', async (req, res) => {
 });
 
 productsRouter.post('/', upload.single('image'), async (req, res) => {
-  const { name, amount, value, available } = req.body;
+  const { name, amount, value } = req.body;
 
   const createProduct = new CreateProductService();
 
@@ -42,26 +43,25 @@ productsRouter.post('/', upload.single('image'), async (req, res) => {
     image: req.file.filename,
     amount,
     value,
-    available
+    available: true,
   });
 
   return res.json(product);
 });
 
-productsRouter.put('/:id', upload.single('image'), async (req, res) => {
+productsRouter.put('/:id', async (req, res) => {
   const { id } = req.params;
   const { name, amount, value, available } = req.body;
 
   if (!validate(id)) {
     return res.status(400).json({ error: "Invalid id" });
-
   }
+
   const updateProduct = new UpdateProductService();
 
   const updatedProduct = await updateProduct.execute({
     id,
     name,
-    image: req.file.filename,
     amount,
     value,
     available
@@ -69,6 +69,24 @@ productsRouter.put('/:id', upload.single('image'), async (req, res) => {
 
   return res.json(updatedProduct);
 });
+
+productsRouter.patch('/:id/image', upload.single('image'), async (req, res) => {
+  const { id } = req.params;
+
+  if (!validate(id)) {
+    return res.status(400).json({ error: "Invalid id" });
+  }
+
+  const updatedProductImage = new UpdateProductImageService();
+
+  const updatedProduct = await updatedProductImage.execute({
+    id,
+    image: req.file.filename,
+  })
+
+  return res.json(updatedProduct);
+
+})
 
 productsRouter.delete('/:id', async (req, res) => {
   const { id } = req.params;
