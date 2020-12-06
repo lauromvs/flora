@@ -2,7 +2,7 @@
     <img src="./assets/logo.png" alt="Flora"/>
 </h1>
 
-<img src="./assets/flora.gif" alt="Gif da aplicação"/>
+<img src="./assets/flora.gif" alt="Gif of application"/>
 
 # 🌱 Flora: plant shop
 This is a plant e-commerce project to reinforce studied concepts of contemporary web development.
@@ -48,11 +48,11 @@ A RESTfull API was used to serve the data, giving flexibility to distribute the 
 - Use ESLint and Prettier to configure code writing standards, avoiding writing disagreement between team members.
 
 ###  Layout
-O layout da aplicação está disponível no [Figma](https://www.figma.com/file/nIT6fFPNfYZF5EOsRtqYg5/Flora-e-commerce?node-id=0%3A1)
+The application layout is available on the [Figma](https://www.figma.com/file/nIT6fFPNfYZF5EOsRtqYg5/Flora-e-commerce?node-id=0%3A1).
 
 ## 🔧 Execute on your PC
 
-- Clone this repository and inside the folder;
+- Clone this repository;
 - Change to folder backend `cd backend`;
 - Run the command to install the dependencies, like `npm install` or `yarn`;
 - Start the backend running command `yarn dev:server` or `npm dev:server`, your backend will run at port 3333;
@@ -70,8 +70,8 @@ O layout da aplicação está disponível no [Figma](https://www.figma.com/file/
 
 ## 📜 License
 
-> This project is under the MIT license. See the archive [LICENSE](./assets/LICENSE) for more details.
+> This project is under the MIT license. See the archive [LICENSE](https://github.com/lauromvs/flora/blob/main/LICENSE.md) for more details.
 
 ---
 
-##### <p align="center"> <strong> < develop by <a href="github.com/jessicafpx"> @jessicafpx</a> and <a href="github.com/lauromvs"> @lauromvs  </a> /> </strong> 👋
+##### <p align="center"> <strong> < developed by <a href="github.com/jessicafpx"> @jessicafpx</a> and <a href="github.com/lauromvs"> @lauromvs  </a> /> </strong> 👋
