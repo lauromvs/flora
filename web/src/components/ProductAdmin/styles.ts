@@ -7,17 +7,42 @@ interface IProductProps {
 export const Container = styled.div<IProductProps>`
   background: #f0f0f5;
   border-radius: 8px;
+  width: 400px;
 
   header {
     border-radius: 8px 8px 0px 0px;
-    height: 400px;
-    object-fit: cover;
+    height: 350px;
     overflow: hidden;
     transition: 0.3s opacity;
     text-align: center;
+    position: relative;
 
     img {
+      height: 100%;
       width: 100%;
+      object-fit: cover;
+    }
+
+    button {
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      background: #db772b;
+      border-radius: 50%;
+      right: 10px;
+      top: 10px;
+      border: 0;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        width: 20px;
+        height: 20px;
+        color: #fff;
+      }
     }
 
     ${props =>

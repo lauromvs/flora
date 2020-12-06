@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import { RiShoppingCart2Line } from 'react-icons/ri';
 import { useCart } from '../../hooks/cart';
@@ -12,7 +12,7 @@ const FloatingCart: React.FC = () => {
 
   const cartTotal = useMemo(() => {
     const total = products.reduce((accumulator, product) => {
-      const productsSubtotal = product.value * product.amount;
+      const productsSubtotal = product.value * product.quantity;
 
       return accumulator + productsSubtotal;
     }, 0);

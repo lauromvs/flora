@@ -22,6 +22,7 @@ interface ICartContext {
   removeFromCart(item: Omit<IProduct, 'quantity'>): void;
   increment(id: string): void;
   decrement(id: string): void;
+  setProducts(products: IProduct[]): void;
 }
 
 const CartContext = createContext<ICartContext | null>(null);
@@ -68,12 +69,14 @@ const CartProvider: React.FC = ({ children }) => {
   const removeFromCart = useCallback(
     product => {
       // const productExists = products.find(p => p.id === product.id);
-      const productIndex = products.findIndex(p => p.id === product.id);
-      const newProducts = products.splice(productIndex, 1);
+      const newProducts = [...products];
+      const productIndex = newProducts.findIndex(p => p.id === product.id);
+
+      newProducts.splice(productIndex, 1);
 
       setProducts(newProducts);
 
-      localStorage.setItem('@Flora:products', JSON.stringify(products));
+      localStorage.setItem('@Flora:products', JSON.stringify(newProducts));
     },
     [products],
   );
@@ -115,8 +118,15 @@ const CartProvider: React.FC = ({ children }) => {
   );
 
   const value = React.useMemo(
-    () => ({ addToCart, removeFromCart, increment, decrement, products }),
-    [products, addToCart, removeFromCart, increment, decrement],
+    () => ({
+      addToCart,
+      removeFromCart,
+      increment,
+      decrement,
+      products,
+      setProducts,
+    }),
+    [products, setProducts, addToCart, removeFromCart, increment, decrement],
   );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

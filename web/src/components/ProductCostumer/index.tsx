@@ -31,7 +31,10 @@ const ProductCostumer: React.FC<IProps> = ({ product }: IProps) => {
   return (
     <Container available={isAvailable()}>
       <header>
-        <img src={product.image} alt={product.name} />
+        <img
+          src={`http://127.0.0.1:3333/files/${product.image}`}
+          alt={product.name}
+        />
       </header>
       <section className="body">
         <h2>{product.name}</h2>

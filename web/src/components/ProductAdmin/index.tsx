@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 
-import { FiEdit3, FiTrash } from 'react-icons/fi';
+import { FiEdit3, FiTrash, FiCamera } from 'react-icons/fi';
 
+import { useHistory } from 'react-router-dom';
 import { Container } from './styles';
 
 import api from '../../services/api';
@@ -18,14 +19,10 @@ interface IProduct {
 interface IProps {
   product: IProduct;
   handleDelete: (id: string) => {};
-  handleEditProduct: (product: IProduct) => void;
 }
 
-const ProductAdmin: React.FC<IProps> = ({
-  product,
-  handleDelete,
-  handleEditProduct,
-}: IProps) => {
+const ProductAdmin: React.FC<IProps> = ({ product, handleDelete }: IProps) => {
+  const history = useHistory();
   const [isAvailable, setIsAvailable] = useState(product.available);
 
   async function toggleAvailable(): Promise<void> {
@@ -41,14 +38,30 @@ const ProductAdmin: React.FC<IProps> = ({
     }
   }
 
-  function setEditingProduct(): void {
-    handleEditProduct(product);
+  const handleImageChange = (): void => {
+    history.push({
+      pathname: '/product-edit-img',
+      state: product,
+    });
+  };
+
+  function handleEditingProduct(): void {
+    history.push({
+      pathname: '/product-edit',
+      state: product,
+    });
   }
 
   return (
     <Container available={isAvailable}>
       <header>
-        <img src={product.image} alt={product.name} />
+        <img
+          src={`http://127.0.0.1:3333/files/${product.image}`}
+          alt={product.name}
+        />
+        <button type="button" onClick={handleImageChange}>
+          <FiCamera />
+        </button>
       </header>
       <section className="body">
         <h2>{product.name}</h2>
@@ -67,7 +80,7 @@ const ProductAdmin: React.FC<IProps> = ({
           <button
             type="button"
             className="icon"
-            onClick={() => setEditingProduct()}
+            onClick={() => handleEditingProduct()}
             data-testid={`edit-product-${product.id}`}
           >
             <FiEdit3 size={20} />

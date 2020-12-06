@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import HeaderCostumer from '../../components/HeaderCostumer';
+import Header from '../../components/Header';
 import ProductCostumer from '../../components/ProductCostumer';
 import FloatingCart from '../../components/FloatingCart';
 
@@ -31,7 +31,7 @@ const CostumerDashboard: React.FC = () => {
 
   return (
     <>
-      <HeaderCostumer />
+      <Header />
 
       <ProductsContainer data-testid="products-list">
         {products &&

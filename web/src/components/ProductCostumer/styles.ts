@@ -7,17 +7,19 @@ interface IProductProps {
 export const Container = styled.div<IProductProps>`
   background: #f0f0f5;
   border-radius: 8px;
+  width: 400px;
 
   header {
     border-radius: 8px 8px 0px 0px;
-    height: 400px;
-    object-fit: cover;
+    height: 350px;
     overflow: hidden;
     transition: 0.3s opacity;
     text-align: center;
 
     img {
+      height: 100%;
       width: 100%;
+      object-fit: cover;
     }
 
     ${props =>

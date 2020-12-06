@@ -1,11 +1,11 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { FiPlus, FiMinus, FiTrash } from 'react-icons/fi';
 
 import { useHistory } from 'react-router-dom';
 import { RiShoppingCart2Line } from 'react-icons/ri';
-import HeaderCostumer from '../../components/HeaderCostumer';
+import Header from '../../components/Header';
 
-// import api from '../../services/api';
+import api from '../../services/api';
 import {
   Container,
   Product,
@@ -28,7 +28,33 @@ interface IProduct {
 
 const Cart: React.FC = () => {
   const history = useHistory();
-  const { removeFromCart, products, increment, decrement } = useCart();
+  const {
+    removeFromCart,
+    products,
+    increment,
+    decrement,
+    setProducts,
+  } = useCart();
+
+  const cartTotal = useMemo(() => {
+    const total = products.reduce((accumulator, product) => {
+      const productsSubtotal = product.value * product.quantity;
+
+      return accumulator + productsSubtotal;
+    }, 0);
+
+    return total;
+  }, [products]);
+
+  const totalItensInCart = useMemo(() => {
+    const total = products.reduce((accumulator, product) => {
+      const productsQuantity = product.quantity;
+
+      return accumulator + productsQuantity;
+    }, 0);
+
+    return total;
+  }, [products]);
 
   function handleIncrement(id: string): void {
     increment(id);
@@ -43,12 +69,28 @@ const Cart: React.FC = () => {
   }
 
   function handleBuy(): void {
-    console.log('comprou');
-    products.map(product => {
-      console.log(product.id);
-      console.log(product.quantity);
-      console.log(product.amount);
+    products.map(async product => {
+      const { id, name, quantity } = product;
+      let { amount, available } = product;
+
+      amount -= quantity;
+      if (amount === 0) {
+        available = false;
+      }
+
+      const body = {
+        name,
+        amount,
+        available,
+      };
+
+      await api.put(`products/${id}`, body);
     });
+
+    alert('Compra realizada com sucesso!');
+    setProducts([]);
+    localStorage.removeItem('@Flora:products');
+    history.push('/');
   }
 
   function handleCancel(): void {
@@ -61,12 +103,15 @@ const Cart: React.FC = () => {
 
   return (
     <>
-      <HeaderCostumer />
+      <Header />
 
       <Container data-testid="products-list">
         {products.map(item => (
           <Product key={item.id}>
-            <img src={item.image} alt="Foto do produto" />
+            <img
+              src={`http://127.0.0.1:3333/files/${item.image}`}
+              alt="Foto do produto"
+            />
             <ProductContent>
               <h1>{item.name}</h1>
               <p>R$ {formatValue(item.value)}</p>
@@ -76,15 +121,26 @@ const Cart: React.FC = () => {
               </h2>
             </ProductContent>
 
-            <ActionContainer>
+            <ActionContainer
+              minusDisable={item.quantity === 1}
+              plusDisable={item.quantity >= item.amount}
+            >
               <button type="button" onClick={() => handleDelete(item)}>
                 <FiTrash size={24} />
               </button>
               <div>
-                <button type="button" onClick={() => handleDecrement(item.id)}>
+                <button
+                  id="minusButton"
+                  type="button"
+                  onClick={() => handleDecrement(item.id)}
+                >
                   <FiMinus size={20} />
                 </button>
-                <button type="button" onClick={() => handleIncrement(item.id)}>
+                <button
+                  id="plusButton"
+                  type="button"
+                  onClick={() => handleIncrement(item.id)}
+                >
                   <FiPlus size={20} />
                 </button>
               </div>
@@ -92,8 +148,8 @@ const Cart: React.FC = () => {
           </Product>
         ))}
 
-        <p>5 itens</p>
-        <p>R$ xx.oo</p>
+        <p>{totalItensInCart} itens</p>
+        <strong>R$ {cartTotal.toFixed(2)}</strong>
       </Container>
       <FooterContainer>
         <div>

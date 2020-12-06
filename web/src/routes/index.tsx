@@ -6,6 +6,9 @@ import Landing from '../pages/Landing';
 import AdminDashboard from '../pages/AdminDashboard';
 import CostumerDashboard from '../pages/CustomerDashboard';
 import Cart from '../pages/Cart';
+import ProductAdd from '../pages/ProductAdd';
+import ProductEdit from '../pages/ProductEdit';
+import ProductEditImage from '../pages/ProductEditImage';
 
 const Routes: React.FC = () => (
   <Switch>
@@ -13,6 +16,9 @@ const Routes: React.FC = () => (
     <Route path="/admin" component={AdminDashboard} />
     <Route path="/shop" component={CostumerDashboard} />
     <Route path="/cart" component={Cart} />
+    <Route path="/product-add" component={ProductAdd} />
+    <Route path="/product-edit" component={ProductEdit} />
+    <Route path="/product-edit-img" component={ProductEditImage} />
   </Switch>
 );
 

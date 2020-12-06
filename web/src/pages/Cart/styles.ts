@@ -1,8 +1,14 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+interface IActionContainerProps {
+  minusDisable: boolean;
+  plusDisable: boolean;
+}
 
 export const Container = styled.div`
   width: 100%;
   max-width: 1280px;
+  min-height: 60vh;
   margin: 0 auto;
   padding: 80px 0;
   margin-top: -140px;
@@ -12,6 +18,19 @@ export const Container = styled.div`
 
   display: flex;
   flex-direction: column;
+
+  p {
+    color: #305b28;
+    margin-left: auto;
+    margin-right: 110px;
+    font-size: 20px;
+  }
+  strong {
+    color: #305b28;
+    margin-left: auto;
+    margin-right: 110px;
+    font-size: 24px;
+  }
 `;
 
 export const Product = styled.div`
@@ -56,7 +75,7 @@ export const ProductContent = styled.div`
   }
 `;
 
-export const ActionContainer = styled.div`
+export const ActionContainer = styled.div<IActionContainerProps>`
   color: #e9863b;
   width: 115px;
 
@@ -91,6 +110,24 @@ export const ActionContainer = styled.div`
       color: #fff;
       border-radius: 8px;
     }
+  }
+  #minusButton {
+    ${props =>
+    props.minusDisable &&
+    css`
+        background: #e4e4eb;
+        color: #969696;
+        cursor: default;
+      `};
+  }
+  #plusButton {
+    ${props =>
+    props.plusDisable &&
+    css`
+        background: #e4e4eb;
+        color: #969696;
+        cursor: default;
+      `};
   }
 `;
 
