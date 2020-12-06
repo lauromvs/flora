@@ -1,18 +1,18 @@
 <h1 align="center">
-    <img src="./web/src/assets/logo-landing.png" alt="Flora" style="height:50px;"/>
+    <img src="./web/src/assets/logo-landing.png" alt="Flora" style="height:25px;"/>
 </h1>
 
-<img src="" alt="Gif da aplicação"/>
+<img src="./assets/flora.gif" alt="Gif da aplicação"/>
 
-# Flora, plant shop
+# 🌱 Flora: plant shop
 This is a plant e-commerce project to reinforce studied concepts of contemporary web development.
 The project consists of two levels of access, the administrative and the customer. On the part of the administrator, it is possible to register and control the products available in e-commerce. In the customer section there is the product listing and the shopping cart to simulate sales.
 
-## Project
+## 📝 Project
 A RESTfull API was used to serve the data, giving flexibility to distribute the application on multiple platforms and a SPA (Single Page Application) on the web front end to optimize performance and guarantee the best user experience.
 
 
-## Back-end
+## ⚙️ Back-end
 
 ### Technologies
 - PostgreSQL
@@ -31,7 +31,7 @@ A RESTfull API was used to serve the data, giving flexibility to distribute the 
 - Use HTTP routes to serve static files;
 - Use a temporary folder to upload files to the server. In real large-scale applications the ideal is to transfer these files from the temporary folder to a static file server.
 
-## Front-end
+## 💻 Front-end
 
 ### Technologies
 - React.js
@@ -50,7 +50,7 @@ A RESTfull API was used to serve the data, giving flexibility to distribute the 
 ###  Layout
 O layout da aplicação está disponível no [Figma](https://www.figma.com/file/nIT6fFPNfYZF5EOsRtqYg5/Flora-e-commerce?node-id=0%3A1)
 
-## Execute on your PC
+## 🔧 Execute on your PC
 
 - Clone this repository and inside the folder;
 - Change to folder backend `cd backend`;
@@ -61,17 +61,17 @@ O layout da aplicação está disponível no [Figma](https://www.figma.com/file/
 - After that, run the command to start the project, for example: `npm run dev` or `yarn start`;
 - Then access the application at <strong> `http://localhost:3000`</strong>, change the port if you're using another.
 
-## How to Contribute
+## 🤔 How to Contribute
 
 - Fork this repository;
 - Create a branch with your feature: `git checkout -b my-feature`;
 - Commit your changes: `git commit -m 'feat: my new feature'`;
 - Push to your branch: `git push origin my-feature`.
 
-## License
+## 📜 License
 
 > This project is under the MIT license. See the archive [LICENSE](./assets/LICENSE) for more details.
 
 ---
 
-##### <p align="center"> <strong> < develop by <a href="github.com/jessicafpx"> @jessicafpx</a> and <a href="github.com/lauromvs"> @lauromvs  </a> /> </strong>
+##### <p align="center"> <strong> < develop by <a href="github.com/jessicafpx"> @jessicafpx</a> and <a href="github.com/lauromvs"> @lauromvs  </a> /> </strong> 👋
