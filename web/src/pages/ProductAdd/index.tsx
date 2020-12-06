@@ -1,21 +1,12 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
-import { FiCheckSquare, FiUpload } from 'react-icons/fi';
 import { useHistory } from 'react-router-dom';
 
+import { FiCheckSquare, FiUpload } from 'react-icons/fi';
 import Header from '../../components/Header';
 
 import api from '../../services/api';
 
 import { Container, Form } from './styles';
-
-interface IProduct {
-  id: string;
-  name: string;
-  image: string;
-  value: number;
-  amount: number;
-  available: boolean;
-}
 
 const ProductAdd: React.FC = () => {
   const history = useHistory();
@@ -104,7 +95,7 @@ const ProductAdd: React.FC = () => {
             <button type="button" onClick={handleCancel}>
               Cancelar
             </button>
-            <button type="submit" data-testid="add-product-button">
+            <button type="submit">
               <p className="text">Adicionar Produto</p>
               <div className="icon">
                 <FiCheckSquare size={24} />

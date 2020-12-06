@@ -1,11 +1,14 @@
 import React, { useCallback, useMemo } from 'react';
-import { FiPlus, FiMinus, FiTrash } from 'react-icons/fi';
-
 import { useHistory } from 'react-router-dom';
+
+import { FiPlus, FiMinus, FiTrash } from 'react-icons/fi';
 import { RiShoppingCart2Line } from 'react-icons/ri';
+
 import Header from '../../components/Header';
+import { useCart } from '../../hooks/cart';
 
 import api from '../../services/api';
+
 import {
   Container,
   Product,
@@ -13,8 +16,6 @@ import {
   ActionContainer,
   FooterContainer,
 } from './styles';
-
-import { useCart } from '../../hooks/cart';
 
 interface IProduct {
   id: string;
@@ -105,7 +106,7 @@ const Cart: React.FC = () => {
     <>
       <Header />
 
-      <Container data-testid="products-list">
+      <Container>
         {products.map(item => (
           <Product key={item.id}>
             <img

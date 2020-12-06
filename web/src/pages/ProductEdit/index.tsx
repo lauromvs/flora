@@ -1,7 +1,7 @@
 import React, { FormEvent, useState, useEffect } from 'react';
-import { FiCheckSquare } from 'react-icons/fi';
 import { useHistory } from 'react-router-dom';
 
+import { FiCheckSquare } from 'react-icons/fi';
 import Header from '../../components/Header';
 
 import api from '../../services/api';
@@ -86,7 +86,7 @@ const ProductEdit: React.FC = () => {
             <button type="button" onClick={handleCancel}>
               Cancelar
             </button>
-            <button type="submit" data-testid="add-product-button">
+            <button type="submit">
               <p className="text">Editar Produto</p>
               <div className="icon">
                 <FiCheckSquare size={24} />

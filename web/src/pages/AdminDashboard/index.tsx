@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 import Header from '../../components/Header';
+import ProductAdmin from '../../components/ProductAdmin';
 
 import api from '../../services/api';
-
-import ProductAdmin from '../../components/ProductAdmin';
 
 import { ProductsContainer } from './styles';
 
@@ -44,7 +43,7 @@ const AdminDashboard: React.FC = () => {
     <>
       <Header isAdmin />
 
-      <ProductsContainer data-testid="products-list">
+      <ProductsContainer>
         {products &&
           products.map(product => (
             <ProductAdmin

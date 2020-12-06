@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState } from 'react';
 
 import { FiEdit3, FiTrash, FiCamera } from 'react-icons/fi';
 
@@ -81,7 +81,6 @@ const ProductAdmin: React.FC<IProps> = ({ product, handleDelete }: IProps) => {
             type="button"
             className="icon"
             onClick={() => handleEditingProduct()}
-            data-testid={`edit-product-${product.id}`}
           >
             <FiEdit3 size={20} />
           </button>
@@ -90,7 +89,6 @@ const ProductAdmin: React.FC<IProps> = ({ product, handleDelete }: IProps) => {
             type="button"
             className="icon"
             onClick={() => handleDelete(product.id)}
-            data-testid={`remove-food-${product.id}`}
           >
             <FiTrash size={20} />
           </button>
@@ -105,7 +103,6 @@ const ProductAdmin: React.FC<IProps> = ({ product, handleDelete }: IProps) => {
               type="checkbox"
               checked={isAvailable}
               onChange={toggleAvailable}
-              data-testid={`change-status-food-${product.id}`}
             />
             <span className="slider" />
           </label>

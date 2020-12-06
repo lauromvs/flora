@@ -1,6 +1,6 @@
 import React from 'react';
-
 import { Link } from 'react-router-dom';
+
 import { RiAdminLine, RiShoppingCart2Line } from 'react-icons/ri';
 
 import Logo from '../../assets/logo-landing.png';

@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FormEvent, useState, useEffect } from 'react';
-import { FiCheckSquare, FiUpload } from 'react-icons/fi';
 import { useHistory } from 'react-router-dom';
 
+import { FiCheckSquare, FiUpload } from 'react-icons/fi';
 import Header from '../../components/Header';
 
 import api from '../../services/api';
@@ -54,6 +54,7 @@ const ProductAdd: React.FC = () => {
     data.append('image', image as File);
 
     await api.patch(`products/${editingId}/image`, data);
+
     alert('Imagem alterada com sucesso!');
     history.push('/admin');
   }
@@ -65,14 +66,11 @@ const ProductAdd: React.FC = () => {
         <Form>
           <h1>Editar Imagem</h1>
           <div className="flexContainer">
-            {previewImage ? (
-              <img src={previewImage} alt="Imagem do produto" />
-            ) : (
-                <img
-                  src={`http://127.0.0.1:3333/files/${fileName}`}
-                  alt="Imagem do produto"
-                />
-              )}
+            <img
+              src={previewImage || `http://127.0.0.1:3333/files/${fileName}`}
+              alt="Imagem do produto"
+            />
+
             <div className="uploadDiv">
               <label htmlFor="fileInput" className="new-button">
                 <FiUpload size={20} />

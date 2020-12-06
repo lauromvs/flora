@@ -67,7 +67,7 @@ export const ButtonContainer = styled.div`
       background-color: #4e7248;
     }
 
-    &: hover {
+    &:hover {
       background-color: ${shade(0.2, '#305b28')};
     }
   }

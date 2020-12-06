@@ -5,6 +5,7 @@ import ProductCostumer from '../../components/ProductCostumer';
 import FloatingCart from '../../components/FloatingCart';
 
 import api from '../../services/api';
+
 import { ProductsContainer } from './styles';
 
 interface IProduct {
@@ -33,7 +34,7 @@ const CostumerDashboard: React.FC = () => {
     <>
       <Header />
 
-      <ProductsContainer data-testid="products-list">
+      <ProductsContainer>
         {products &&
           products.map(product => (
             <ProductCostumer key={product.id} product={product} />
