@@ -8,10 +8,10 @@ interface IActionContainerProps {
 export const Container = styled.div`
   width: 100%;
   max-width: 1280px;
-  min-height: 60vh;
+
   margin: 0 auto;
   padding: 80px 0;
-  margin-top: -140px;
+  margin-top: -100px;
   border-radius: 8px;
 
   background: #efeff3;
@@ -146,7 +146,7 @@ export const FooterContainer = styled.footer`
       border-radius: 8px;
       margin-left: 40px;
       border: 0;
-      background: #305b28;
+      background: #db772b;
       color: #fff;
 
       display: flex;
@@ -160,7 +160,7 @@ export const FooterContainer = styled.footer`
       .icon {
         display: flex;
         padding: 16px 16px;
-        background: #4e7248;
+        background: #e9863b;
         border-radius: 0 8px 8px 0;
         margin: 0 auto;
       }

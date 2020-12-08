@@ -6,7 +6,7 @@ export const Container = styled.div`
   border-radius: 10px;
   width: 1280px;
   margin: 0 auto;
-  margin-top: -140px;
+  margin-top: -100px;
 `;
 
 export const Form = styled.form`

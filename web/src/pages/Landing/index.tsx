@@ -23,11 +23,11 @@ const Landing: React.FC = () => {
         </LogoContainer>
         <ButtonContainer>
           <Link to="/admin">
-            <RiAdminLine size={20} />
+            <RiAdminLine size={22} />
             Administrador
           </Link>
           <Link to="/shop">
-            <RiShoppingCart2Line size={20} />
+            <RiShoppingCart2Line size={22} />
             Cliente
           </Link>
         </ButtonContainer>

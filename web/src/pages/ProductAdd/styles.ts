@@ -4,9 +4,11 @@ import { shade } from 'polished';
 export const Container = styled.div`
   background: #f0f0f5;
   border-radius: 10px;
-  width: 90%;
+  width: 100%;
+  max-width: 1280px;
   margin: 0 auto;
-  margin-top: -140px;
+
+  margin-top: -100px;
 `;
 
 export const Form = styled.form`

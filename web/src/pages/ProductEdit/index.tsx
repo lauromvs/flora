@@ -87,7 +87,7 @@ const ProductEdit: React.FC = () => {
               Cancelar
             </button>
             <button type="submit">
-              <p className="text">Editar Produto</p>
+              <p className="text">Salvar alterações</p>
               <div className="icon">
                 <FiCheckSquare size={24} />
               </div>
